@@ -15,7 +15,7 @@ var count=0;
  
 app.post('/upload.node',function(req,resp){
 	console.log('上传请求 '+ (new Date()));
-	var data = new Buffer(req.body.fileData,'base64');
+	//var data = new Buffer (req.body.fileData,'base64');
 	//var filePath = req.body.filePath;
 	var filePath = "D:/node/";
 	var pathObj = path.parse(filePath);//对文件路径字符串进行操作
@@ -43,7 +43,7 @@ app.post('/upload.node',function(req,resp){
 		});
 	}
 	//写入文件
-	
+	resp.setHeader('Access-Control-Allow-Origin', '*');
 	//console.log('*** ' + count +' ***');
     resp.status(200).end(responseBody.toString());
 });
